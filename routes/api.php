@@ -17,3 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+
+
+Route::post('login', 'App\Http\Controllers\UserController@login');
+Route::post('logout', 'App\Http\Controllers\UserController@logout')->middleware('auth:sanctum');
+
+
+
+Route::post('image', 'App\Http\Controllers\UserController@getImage')->middleware('auth:sanctum');
+Route::get('get/users', 'App\Http\Controllers\UserController@allUsers')->middleware('auth:sanctum');
